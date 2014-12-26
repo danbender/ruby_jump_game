@@ -16,12 +16,12 @@ class RubyJumpGame < Gosu::Window
 	end
 
 	def update
+		@x = self.width/2 - @image.width/2
+		@y = self.height/2 - @image.height/2
 	end
 
 	def draw
-		@image.draw self.width/2 - @image.width/2, 
-					self.height/2 - @image.height/2,
-					0
+		@image.draw @x, @y, 0
 	end
 end
 
