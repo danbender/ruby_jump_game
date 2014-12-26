@@ -19,7 +19,9 @@ class RubyJumpGame < Gosu::Window
 	end
 
 	def draw
-		@image.draw 0, 0, 0
+		@image.draw self.width/2 - @image.width/2, 
+					self.height/2 - @image.height/2,
+					0
 	end
 end
 
