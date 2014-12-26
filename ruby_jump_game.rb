@@ -5,7 +5,10 @@ class RubyJumpGame < Gosu::Window
 		super
 		self.caption = "A Ruby Jump Game"
 
-		@image = Gosu
+		@image = Gosu::Image.from_text self, 
+					   "Hello, this is me.",
+					   Gosu.default_font_name,
+					   100
 	end
 
 	def button_down id
@@ -16,6 +19,7 @@ class RubyJumpGame < Gosu::Window
 	end
 
 	def draw
+		@image.draw 0, 0, 0
 	end
 end
 
