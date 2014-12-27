@@ -24,7 +24,7 @@ class Sprite < Gosu::Window
 		if @direction == :right
 			@image.draw @x, @y, 1, 0.2, 0.2
 		else
-			@image.draw @x, @y, 1, -0.2, 0.2
+			@image.draw @x + @image.width*0.2, @y, 1, -0.2, 0.2
 		end
 	end
 end
