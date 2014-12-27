@@ -1,8 +1,10 @@
+# thank you, @blowmage, for the talk at http://youtu.be/jJhbpY70miE
 require 'gosu'
 
 class Sprite
 	def initialize window
 		@window = window
+
 		# img
 	    @width = @height = 160
 		@idle = Gosu::Image.load_tiles @window,
@@ -52,7 +54,7 @@ end
 class SpriteGame < Gosu::Window
 	def initialize width = 800, height = 600, fullscreen = false
 		super
-		self.caption = "Sprite Demonstration"
+		self.caption = "A little Ruby guy"
 		@sprite = Sprite.new self
 	end
 

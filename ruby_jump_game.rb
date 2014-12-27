@@ -1,3 +1,4 @@
+# thank you, @blowmage, for the talk at http://youtu.be/jJhbpY70miE
 require "gosu"
 
 class RubyJumpGame < Gosu::Window
