@@ -10,11 +10,22 @@ class Sprite < Gosu::Window
 	end
 
 	def update
-		@x += -5 if @window.button_down?  Gosu::KbLeft
+		if @window.button_down? Gosu::KbLeft
+			@direction = :left
+			@x += -5
+		end
+		if @window.button_down?  Gosu::KbRight
+			@direction = :right
+			@x += 5 
+		end
 	end
 
 	def draw
-		@image.draw @x, @y, 1
+		if @direction == :right
+			@image.draw @x, @y, 1, 0.2, 0.2
+		else
+			@image.draw @x, @y, 1, -0.2, 0.2
+		end
 	end
 end
 
