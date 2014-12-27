@@ -56,6 +56,8 @@ class SpriteGame < Gosu::Window
 		super
 		self.caption = "A little Ruby guy"
 		@sprite = Sprite.new self
+		@song  = Gosu::Song.new self, "./assets/music.mp3"
+        @song.play
 	end
 
 	def button_down id
