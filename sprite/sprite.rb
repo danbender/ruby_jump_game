@@ -1,30 +1,50 @@
 require 'gosu'
 
-class Sprite < Gosu::Window
+class Sprite
 	def initialize window
 		@window = window
-		@image = Gosu::Image.new @window, "assets/player.png"
+		# img
+	    @width = @height = 160
+		@idle = Gosu::Image.load_tiles @window,
+                                   "./assets/player_160x160_idle.png",
+                                   @width, @height, true
+
+        @move = Gosu::Image.load_tiles @window,
+                                   "./assets/player_160x160_move.png",
+                                   @width, @height, true
 		# center img
-		@x = @window.width/2 - @image.width/2
-		@y = @window.height/2 - @image.height/2
+		@x = @window.width/2 - @width/2
+		@y = @window.height/2 - @height/2
+		
+		# direction and movement
+		@direction = :right
+		@frame = 0
+		@moving = false
 	end
 
 	def update
+		@frame += 1
+		@moving = false
 		if @window.button_down? Gosu::KbLeft
 			@direction = :left
+			@moving = true
 			@x += -5
 		end
 		if @window.button_down?  Gosu::KbRight
 			@direction = :right
+			@moving = true
 			@x += 5 
 		end
 	end
 
 	def draw
+		# @move and @idle are same size so we can use the same frame calc
+		f = @frame % @idle.size
+		image = @moving ? @move[f] : @idle[f]
 		if @direction == :right
-			@image.draw @x, @y, 1, 0.2, 0.2
+			image.draw @x, @y, 1
 		else
-			@image.draw @x + @image.width*0.2, @y, 1, -0.2, 0.2
+			image.draw @x + @width, @y, 1, -1, 1
 		end
 	end
 end
