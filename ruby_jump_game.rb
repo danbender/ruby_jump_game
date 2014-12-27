@@ -16,7 +16,7 @@ class RubyJumpGame < Gosu::Window
 
     def button_down id
         close if id == Gosu::KbEscape
-        @sample.play if id == Gosu::KbX
+        @sound.play if id == Gosu::KbX
     end
 
     def update
