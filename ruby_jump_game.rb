@@ -4,9 +4,9 @@ class RubyJumpGame < Gosu::Window
     def initialize width=800, height=600, fullscreen=false
         super
         self.caption = "A Ruby Jump Game"
-        @song  = Gosu::Song.new self, "music.mp3"
+        @song  = Gosu::Song.new self, "assets/music.mp3"
         @song.play
-        @sound = Gosu::Sample.new self, "hop.mp3" 
+        @sound = Gosu::Sample.new self, "assets/hop.mp3" 
         @image = Gosu::Image.from_text self, 
                        "Hello, this is me.",
                        Gosu.default_font_name,
@@ -16,7 +16,7 @@ class RubyJumpGame < Gosu::Window
 
     def button_down id
         close if id == Gosu::KbEscape
-        @sample.play if id == Gosu::KbX
+        @sound.play if id == Gosu::KbX
     end
 
     def update
